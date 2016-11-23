@@ -1,14 +1,7 @@
 class Pangram
-  def self.is_pangram?(str)
-    (required_chars - included_chars(str)).empty?
-  end
-
-  def self.required_chars
-    ("a".."z").to_a
-  end
-
-  def self.included_chars(str)
-    str.downcase.chars
+  def self.is_pangram?(sentence)
+    sentence.downcase!
+    ("a".."z").all? { |char| sentence.include?(char) }
   end
 end
 
